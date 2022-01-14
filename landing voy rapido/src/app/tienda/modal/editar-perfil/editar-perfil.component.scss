@@ -1,0 +1,11 @@
+form {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 680px) {
+    form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

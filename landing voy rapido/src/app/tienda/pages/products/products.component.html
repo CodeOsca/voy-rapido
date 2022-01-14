@@ -1,0 +1,162 @@
+<div class="container-main">
+  <section class="header-main">
+    <h2
+      class="title-main"
+      routerLink="/tienda/despachos"
+      style="cursor: pointer"
+    >
+      <i class="fas fa-arrow-left"></i>
+      <span>Fecha - {{ dispatch?.retirementDate }}</span>
+    </h2>
+  </section>
+
+  <section
+    class="content-main"
+    [ngClass]="{ 'margin-botton': products && products.length >= 3 }"
+  >
+    <div class="content-info-file" [ngClass]="{ ver: file }">
+      <h3 class="title-info" *ngIf="file">{{ file.name }}</h3>
+      <i class="fas fa-times" (click)="setExcel(null)"></i>
+      <div class="info">
+        <p class="info-name">Su archivo esta preparado!!</p>
+        <span class="btn-info" (click)="uploadExel()">Subir archivo</span>
+      </div>
+    </div>
+
+    <app-table
+      *ngIf="products"
+      [columns]="columns"
+      laberPerPage="Productos por página"
+      (onSelection)="selection = $event"
+      [data]="products"
+      [hasHeaderOptions]="true"
+    >
+      <!-- nombre Column -->
+      <ng-container matColumnDef="deliveryName">
+        <th mat-header-cell class="header-options" *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let row">{{ row.deliveryName }}</td>
+      </ng-container>
+
+      <!-- comunaColumn -->
+      <ng-container matColumnDef="deliveryCommuna">
+        <th mat-header-cell class="header-options" *matHeaderCellDef>Comuna</th>
+        <td mat-cell *matCellDef="let row">{{ row.deliveryCommuna.name }}</td>
+      </ng-container>
+
+      <!-- telefono Column -->
+      <ng-container matColumnDef="deliveryPhone">
+        <th mat-header-cell class="header-options" *matHeaderCellDef>
+          Teléfono
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.deliveryPhone }}</td>
+      </ng-container>
+
+      <!-- direccion Column -->
+      <ng-container matColumnDef="deliveryAddress">
+        <th mat-header-cell class="header-options" *matHeaderCellDef>
+          Dirección
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.deliveryAddress }}</td>
+      </ng-container>
+
+      <!-- observaciones Column -->
+      <ng-container matColumnDef="observations">
+        <th mat-header-cell class="header-options" *matHeaderCellDef>
+          Observaciones
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.observations }}</td>
+      </ng-container>
+
+      <!-- price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell class="header-options" *matHeaderCellDef>Precio</th>
+        <td mat-cell *matCellDef="let row">
+          <i class="fas fa-dollar-sign"></i>{{ row.price }}
+        </td>
+      </ng-container>
+
+      <!-- opciones Column -->
+      <ng-container matColumnDef="opciones">
+        <th mat-header-cell class="header-options" *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" style="text-align: right">
+          <a class="id" (click)="detallesProduct(row)" matTooltip="Detalles"
+            ><i class="fas fa-eye"></i
+          ></a>
+          <a
+            class="id edit"
+            (click)="clickEditarProduct(row)"
+            matTooltip="Editar"
+            ><i class="fas fa-pen"></i
+          ></a>
+          <a
+            class="id delete"
+            (click)="clickDeleteProduct(row)"
+            matTooltip="Eliminar"
+            ><i class="fas fa-times"></i
+          ></a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="select-options">
+        <th mat-header-cell class="th-options" *matHeaderCellDef colspan="9">
+          <i
+            class="fas fa-trash-alt delete"
+            (click)="clickDeleteMasivoProduct()"
+            matTooltip="Eliminar productos"
+          ></i>
+          <i
+            class="fas fa-plus-circle add"
+            (click)="clickAddProduct()"
+            matTooltip="Nuevo producto"
+          ></i>
+          <label for="file-excel"
+            ><i class="fas fa-file-upload add" matTooltip="Carga masiva"></i
+          ></label>
+          <form [formGroup]="formFile" style="display: none">
+            <input
+              formControlName="file"
+              type="file"
+              id="file-excel"
+              accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+              (change)="setExcel($event)"
+            />
+          </form>
+          <i
+            class="fas fa-cloud-download-alt"
+            matTooltip="Descargar plantilla"
+            (click)="downloadTemplate()"
+          ></i>
+        </th>
+      </ng-container>
+      <tr
+        mat-header-row
+        class="tr-options"
+        *matHeaderRowDef="['select-options']"
+      ></tr>
+    </app-table>
+  </section>
+</div>
+
+<app-add-product
+  [product]="product"
+  [ver]="verAddProduct"
+  [isAdd]="!isEditProduct"
+  (cerrar)="verAddProduct = $event"
+  (create)="create($event)"
+  (update)="update($event)"
+></app-add-product>
+
+<app-detalles-product
+  *ngIf="product"
+  [product]="product"
+  [ver]="verProduct"
+  (cerrar)="verProduct = $event"
+></app-detalles-product>
+
+<app-confirmar
+  *ngIf="datos"
+  [datos]="datos"
+  [ver]="verConfirmar"
+  (cerrar)="verConfirmar = $event"
+  (aceptar)="clickConfirmar($event)"
+></app-confirmar>

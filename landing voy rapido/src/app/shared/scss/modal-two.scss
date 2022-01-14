@@ -1,0 +1,197 @@
+.container-modal-two {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: 0.1s;
+  transition-delay: 0.5s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 999;
+}
+
+.container-modal-two.ver {
+  opacity: 1;
+  transition: 0.3s ease all;
+  visibility: visible;
+}
+
+.container-modal-two .modal-two {
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+  bottom: 0;
+  left: 50%;
+  max-width: 680px;
+  opacity: 0;
+  padding: 70px 10px;
+  position: absolute;
+  transform: translateX(-50%) translateY(100px);
+  transition: 0.5s;
+  transition-delay: 0s;
+  visibility: hidden;
+  width: 100%;
+}
+
+.container-modal-two.ver .modal-two {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+  transform: translateX(-50%) translateY(0px);
+}
+
+.container-modal-two .modal-two .content-modal-two {
+  max-height: calc(100vh - 200px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.container-modal-two .modal-two .content-modal-two::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.container-modal-two .modal-two .content-modal-two::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.container-modal-two
+  .modal-two
+  .content-modal-two::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.container-modal-two .modal-two .content-modal-two::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container-modal-two .modal-two .header-modal-two {
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  height: 70px;
+  left: 50%;
+  position: absolute;
+  top: -35px;
+  transform: translateX(-50%);
+  width: 70px;
+}
+
+.container-modal-two .modal-two .header-modal-two .fas {
+  align-items: center;
+  border-radius: 50%;
+  color: var(--color-primary);
+  height: 100%;
+  display: flex;
+  font-size: 2em;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.container-modal-two .modal-two .footer-modal-two {
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid var(--color-primary);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 10px;
+  padding: 5px;
+  position: absolute;
+  width: calc(100% - 20px);
+  z-index: 1;
+}
+
+.container-modal-two .modal-two .footer-modal-two::before {
+  background-color: var(--color-primary);
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  top: -5px;
+  content: "";
+  height: 5px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 5px;
+}
+
+.container-modal-two .modal-two .header-modal-two .fas.close {
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  height: 25px;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 25px;
+}
+
+.container-modal-two .modal-two .footer-modal-two .button-modal-two {
+  align-items: center;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  height: 35px;
+  justify-content: space-between;
+  letter-spacing: 0.4px;
+  margin: 5px;
+  max-width: 250px;
+  outline: none;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.container-modal-two .modal-two .footer-modal-two .button-modal-two:disabled,
+.container-modal-two
+  .modal-two
+  .footer-modal-two
+  .button-modal-two:hover:disabled {
+  background-color: #f2f2f2;
+  color: #ccc;
+  cursor: default;
+}
+
+.container-modal-two .modal-two .footer-modal-two .button-modal-two .fas {
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.container-modal-two
+  .modal-two
+  .footer-modal-two
+  .button-modal-two:disabled
+  .fas,
+.container-modal-two
+  .modal-two
+  .footer-modal-two
+  .button-modal-two:disabled:hover
+  .fas {
+  color: #ccc;
+}
+
+@media (min-width: 1024px) {
+  .container-modal-two .modal-two {
+    padding-bottom: 120px;
+  }
+
+  .container-modal-two .modal-two .content-modal-two {
+    max-height: calc(100vh - 250px);
+  }
+
+  .container-modal-two .modal-two .footer-modal-two {
+    height: 100px;
+  }
+}

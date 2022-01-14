@@ -1,0 +1,45 @@
+.content-imagen {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-imagen img {
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    height: 128px;
+    margin: 5px;
+    object-fit: cover;
+    width: 128px;
+}
+
+.content-imagen input {
+    display: none;
+}
+
+.content-imagen .label-file {
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 14px;
+    height: 40px;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+.content-imagen .label-file .fas {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+
+@media (min-width: 1024px) {
+    .content-imagen img {
+        height: 170px;
+        width: 170px;
+    }
+}

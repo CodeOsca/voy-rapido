@@ -1,0 +1,81 @@
+<!-- HEADER HOME PAGE -->
+<header class="header" [ngClass]="{ shadow: headerColor }" *ngIf="!isTienda">
+  <div class="container-logo">
+    <div class="content-logo">
+      <h1 class="h1">
+        <a [routerLink] [fragment]>
+          <img
+            src="./assets/imagenes/logolpor1.png"
+            alt="Logo Voy Rapido"
+          />
+        </a>
+      </h1>
+    </div>
+    <i class="fas fa-bars" (click)="verNav = !verNav"></i>
+  </div>
+  <div class="content-header" [ngClass]="{ active: verNav }">
+    <div class="content-auth">
+      <div class="content-buttons">
+        <a class="button-auth ripple-efect" [routerLink]="['login']">LOGIN</a>
+        <a class="button-auth ripple-efect" [routerLink]="['registrarse']"
+          >REGISTRARSE</a
+        >
+      </div>
+      <div class="close-nav">
+        <i class="fas fa-times" (click)="verNav = !verNav"></i>
+      </div>
+    </div>
+    <app-nav (close)="verNav = $event"></app-nav>
+    <div class="footer-header">
+      <span class="sociales">
+        <a href="{{ whatsapp }}" target="_blank"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+        <a href="{{ instagram }}" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="{{ facebook }}" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+      </span>
+      <p class="texto">
+        VoyRapidoChile 2021 &copy; | Desarrollado por HelloMundoChile
+      </p>
+    </div>
+  </div>
+</header>
+<!-- FIN HEADER HOME PAGE  -->
+
+<!-- HEADER TIENDA -->
+<header
+  class="header-tienda"
+  [ngClass]="{ shadow: headerColor }"
+  *ngIf="isTienda"
+>
+  <div class="container-logo">
+    <i class="fas fa-arrow-right" *ngIf="!nav" (click)="navTienda(true)"></i>
+    <i class="fas fa-arrow-left" *ngIf="nav" (click)="navTienda(false)"></i>
+    <div class="content-logo">
+      <h1 class="h1">
+        <img
+          src="./assets/imagenes/voy-rapido.png"
+          alt="Logo Voy Rapido"
+        />
+      </h1>
+    </div>
+  </div>
+  <div class="content-config">
+    <div class="setting" (click)="verMisNotificaciones()">
+      <span class="name">Notificaciones</span>
+      <i
+        class="fas fa-bell notification"
+        [attr.data-notification]="notificationsNotSeen"
+      ></i>
+    </div>
+    <div class="setting" (click)="verMiConfiguracion()">
+      <span class="name">{{ user?.name }}</span>
+      <i class="fas fa-user-cog"></i>
+    </div>
+  </div>
+</header>
+<!-- FIN HEADER TIENDA  -->

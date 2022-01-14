@@ -1,0 +1,25 @@
+<section class="principal">
+  <div class="content-figures">
+    <span *ngFor="let i of [1,2,3]" class="figure-{{i}}"></span>
+  </div>
+  <div class="content-principal">
+    <img src="./assets/imagenes/voy-rapido.png" alt="logo">
+    <h3>
+      Somos tu mejor aliado a la hora de despachar tus productos!
+    </h3>
+    <div class="content-buttons">
+      <div class="content-button">
+        <div class="lineas">
+          <span *ngFor="let i of [1,2,3,4]" class="line line-{{i}}"></span>
+        </div>
+        <a class="button ripple-efect" [routerLink] [fragment]="'seguimiento'">Sigue tu despacho</a>
+      </div>
+      <div class="content-button">
+        <div class="lineas">
+          <span *ngFor="let i of [1,2,3,4]" class="line line-{{i}}"></span>
+        </div>
+        <a class="button ripple-efect" [routerLink]="['registrarse']">Registrarse</a>
+      </div>
+    </div>
+  </div>
+</section>

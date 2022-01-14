@@ -1,0 +1,48 @@
+<!-- NAVEGACIÓN HOME PAGE -->
+<nav class="nav" *ngIf="!isTienda">
+  <ul>
+    <li class="item" *ngFor="let item of navHome" (click)="closeNav()">
+      <a [routerLink] [fragment]="item.link" class="link-item">{{
+        item.nombre
+      }}</a>
+    </li>
+  </ul>
+</nav>
+<!-- FIN NAVEGACIÓN HOME PAGE -->
+
+<!-- NAVEGACIÓN TIENDA -->
+<nav class="nav-tienda" *ngIf="isTienda" [ngClass]="{ ver: verNav }">
+  <h4 class="title">
+    <img
+      src="../../../../assets/imagenes/voy-rapido.png"
+      alt="Logo Voy Rapido"
+    />
+  </h4>
+  <ul>
+    <ng-container *ngFor="let item of navTienda">
+      <li
+        class="item"
+        (click)="closeNavTienda()"
+        [ngClass]="{ not1024: !item.is1024 }"
+        *ngIf="item.show"
+      >
+        <a
+          routerLink="/tienda/{{ item.link }}"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.exact }"
+          class="link-item ripple-efect"
+        >
+          <i class="fas fa-{{ item.icon }}"></i>
+          <span class="name">{{ item.nombre }}</span>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+
+  <p class="texto">
+    VoyRapidoChile 2021 &copy; | Hecho con mucho
+    <i class="fas fa-heart"></i> por
+    <a href="https://hellomundo.io/" target="__blank">hellomundo</a>
+  </p>
+</nav>
+<!-- FIN NAVEGACIÓN TIENDA -->

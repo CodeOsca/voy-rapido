@@ -1,0 +1,133 @@
+<div class="content-figures">
+  <span class="figure-1"></span>
+  <span class="figure-2"></span>
+  <span class="figure-3"></span>
+</div>
+
+<div class="content-auth">
+  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+    <h2 class="title-form">Registrarse</h2>
+    <div class="content-inputs">
+      <div
+        class="my-input"
+        [ngClass]="{
+          error: verificarInput('name') || formRegister.value.name === ''
+        }"
+      >
+        <i class="fas fa-user"></i>
+        <input placeholder="Nombre de contacto" formControlName="name" />
+      </div>
+
+      <div
+        class="my-input"
+        [ngClass]="{
+          error:
+            verificarInput('storeName') || formRegister.value.storeName === ''
+        }"
+      >
+        <i class="fas fa-user"></i>
+        <input placeholder="Nombre de tu pyme" formControlName="storeName" />
+      </div>
+
+      <div
+        class="my-input"
+        [ngClass]="{
+          error: verificarInput('email') || formRegister.value.email === ''
+        }"
+      >
+        <i class="fas fa-envelope"></i>
+        <input placeholder="Email" formControlName="email" />
+      </div>
+
+      <div
+        class="my-input"
+        [ngClass]="{
+          error: verificarInput('phone') || formRegister.value.phone === ''
+        }"
+      >
+        <i class="fas fa-phone-alt"></i>
+        <input
+          placeholder="Teléfono"
+          formControlName="phone"
+          autocomplete="off"
+        />
+      </div>
+
+      <div
+        class="my-input"
+        [ngClass]="{
+          error:
+            verificarInput('password') || formRegister.value.password === ''
+        }"
+      >
+        <i class="fas fa-lock"></i>
+        <input
+          placeholder="Contraseña"
+          type="password"
+          formControlName="password"
+          autocomplete="off"
+        />
+      </div>
+
+      <div
+        style="position: relative"
+        class="my-input"
+        [ngClass]="{
+          error:
+            verificarInput('repeatPassword') ||
+            formRegister.value.repeatPassword === '' ||
+            formRegister?.hasError('repeatPassword')
+        }"
+      >
+        <small
+          class="text-error"
+          *ngIf="
+            verificarInput('repeatPassword') ||
+            formRegister?.hasError('repeatPassword')
+          "
+          >Las contraseñas no coinciden</small
+        >
+        <i class="fas fa-lock"></i>
+        <input
+          placeholder="Repetir Contraseña"
+          type="password"
+          formControlName="repeatPassword"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <button
+      *ngIf="!isLoading; else elseSubmit"
+      class="btn-action"
+      type="submit"
+      [disabled]="formRegister.invalid"
+    >
+      Registrarse
+    </button>
+    <ng-template #elseSubmit>
+      <div class="loader">
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </ng-template>
+    <div class="content-link">
+      <a routerLink="/recuperar-contraseña">¿Has olvidado tu contraseña?</a>
+      <a routerLink="/">Ir a inicio</a>
+    </div>
+  </form>
+
+  <section class="info-section">
+    <h3 class="title-info">¿Ya tienes una cuenta?</h3>
+    <p class="description-info">Inicia sesión y disfruta de nuestro servicio</p>
+    <a routerLink="/login">Iniciar sesión</a>
+  </section>
+
+  <p class="texto">
+    VoyRapidoChile 2021 &copy; | Hecho con mucho
+    <i class="fas fa-heart"></i> por
+    <a href="https://hellomundo.io/" target="__blank">hellomundo</a>
+  </p>
+</div>

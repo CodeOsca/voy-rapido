@@ -1,0 +1,76 @@
+<div class="content-search" *ngIf="hasSearchInput">
+  <div class="content-filter">
+    <div class="content-input select">
+      <input
+        placeholder="Buscar..."
+        (input)="search($event)"
+        (blur)="verSelect = false"
+        (focus)="verSelect = true"
+        id="inputSearch"
+      />
+      <button class="button-search">
+        <i class="fas fa-search"></i>
+      </button>
+      <ul class="content-options" [ngClass]="{ ver: verSelect }" *ngIf="filterOptions && filterOptions.length > 0">
+        <li class="option" (click)="filter('')">TODOS</li>
+        <li class="option" *ngFor="let option of filterOptions" (click)="filter(option)">
+          {{ option }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="select-columns" [ngClass]="{ 'not-margin-top': !hasSearchInput }">
+  <div class="columns" *ngFor="let column of headers">
+    <ng-container *ngIf="column[0]">
+      <input
+        class="input-column"
+        type="checkbox"
+        (click)="toggle(column[1])"
+        [checked]="exists(column[1])"
+        id="{{ column[0] }}"
+      />
+      <label class="label-column" for="{{ column[0] }}" [ngClass]="{ 'no-select': !exists(column[1]) }">
+        {{ column[0] }}
+        <i class="fas fa-check-circle" *ngIf="!exists(column[1])"></i>
+        <i class="fas fa-times-circle" *ngIf="exists(column[1])"></i>
+      </label>
+    </ng-container>
+  </div>
+</div>
+
+<div class="content-table">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="select">
+      <th mat-header-cell [class.header-options]="hasHeaderOptions" *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? masterToggle() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()"
+        >
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+          [aria-label]="checkboxLabel(row)"
+        >
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-content></ng-content>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="7" style="text-align: center">No se han encontrado resultados!!</td>
+    </tr>
+  </table>
+
+</div>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

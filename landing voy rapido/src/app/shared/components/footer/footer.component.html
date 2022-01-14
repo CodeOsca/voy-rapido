@@ -1,0 +1,31 @@
+<footer class="footer">
+    <aside class="contacto">
+        <div class="content-logo">
+            <img src="../../../../assets/imagenes/voy-rapido.png" alt="Logo Voy Rapido">
+        </div>
+        <aside class="sociales">
+            <a href="{{ whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="{{ instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="{{ facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+        </aside>
+    </aside>
+    <div class="content-buttons">
+        <div class="content-button">
+            <div class="lineas">
+              <span *ngFor="let i of [1,2,3,4]" class="line line-{{i}}"></span>
+            </div>
+            <a class="button ripple-efect" [routerLink]="['registrarse']">Regístrate!! Agenda tus despachos!!</a>
+        </div>
+    </div>
+    <ul class="nav">
+        <li class="item" *ngFor="let item of navHome">
+            <a [routerLink] [fragment]="item.link" class="link-item">{{ item.nombre }}</a>
+        </li>
+    </ul>
+    <div class="info-contacto">
+        <p class="footer-info"><i class="fas fa-phone"></i>+56952038612</p>
+        <p class="footer-info"><i class="fas fa-envelope"></i>voyrapidochile@gmail.com</p>
+        <p class="footer-info"><i class="fas fa-map-marked-alt"></i>Av. Nueva Providencia N° 1881 Oficina 201</p>
+    </div>
+    <p class="texto">VoyRapidoChile 2021 &copy; | Hecho con mucho <i class="fas fa-heart"></i> por <a href="https://hellomundo.io/" target="__blank">hellomundo</a></p>
+</footer>

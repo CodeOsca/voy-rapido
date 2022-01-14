@@ -1,0 +1,32 @@
+.text-error {
+  color: red;
+  position: absolute;
+  bottom: -1rem;
+}
+
+@media (min-width: 1024px) {
+  .content-auth {
+    width: 900px !important;
+  }
+
+  .content-auth form {
+    transform: translateY(calc(-50% - 50px)) !important;
+    width: 500px !important;
+  }
+
+  .content-auth .content-inputs {
+    display: grid !important;
+    grid-gap: 20px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .content-auth .content-inputs .my-input {
+    margin: 0 !important;
+  }
+
+  .content-auth .info-section {
+    margin-bottom: 80px !important;
+    margin-top: 100px !important;
+    padding-left: 550px !important;
+  }
+}

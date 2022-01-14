@@ -1,0 +1,56 @@
+.main {
+    display: grid;
+    grid-template-areas: "header" "content";
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+}
+
+.main .container {
+    grid-area: content;
+}
+
+.main .texto {
+    color: var(--color-p-dark);
+    font-size: 10px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.main .texto .fas {
+    color: red;
+    margin: 0 5px;
+}
+
+.main .texto a,
+.main .texto a:visited {
+    color: var(--color-p-dark);
+}
+
+@media (min-width: 680px) {
+    .main {
+        grid-template-rows: 60px 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    /* // ************************* PARA NAV LATERAL ********************************* // */
+    .main .container,
+    .main .texto {
+        padding-left: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        grid-template-rows: 100px 1fr;
+    }
+
+    .main .container,
+    .main .texto {
+        padding-left: 0;
+    }
+
+    .main .texto {
+        font-size: 14px;
+    }
+}

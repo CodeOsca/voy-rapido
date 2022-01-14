@@ -1,0 +1,176 @@
+.comunas {
+  color: #000;
+  padding: 100px 0;
+  position: relative;
+}
+
+.comunas .content-mapa {
+  background-color: #fff;
+  opacity: 0;
+  padding: 10px 0;
+  text-align: center;
+  transition: 1s;
+  transition-delay: 0s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1;
+}
+
+.comunas.ver-seccion .content-mapa {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 1.5s;
+}
+
+.comunas .content-mapa img {
+  max-width: 600px;
+  width: 100%;
+}
+
+.comunas .content-mapa .communes > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
+  text-align: left;
+}
+
+.comunas .content-mapa .communes > ul li {
+  list-style: none;
+}
+
+.comunas .content-mapa .communes > ul li:nth-child(odd) {
+  padding-right: 10px;
+}
+
+.comunas .content-mapa .communes > ul li .number {
+  font-weight: 500;
+}
+
+.one {
+  color: var(--color-primary);
+}
+.two {
+  color: var(--color-secondary);
+}
+.three {
+  color: var(--color-p-light);
+}
+
+.comunas .content-mapa .communes .zones {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.comunas .content-mapa .communes .zones ul {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.comunas .content-mapa .communes .zones ul li {
+  color: var(--color);
+  font-weight: 500;
+  list-style: none;
+  padding: 10px;
+}
+
+.comunas .content-mapa .communes .zones ul li i {
+  margin-right: 5px;
+}
+
+.comunas .info .text {
+  color: var(--color-p-dark);
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+.comunas .text {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  opacity: 0;
+  padding: 0 10px;
+  text-align: center;
+  transition: 1s;
+  transition-delay: 0s;
+  transform: translateY(50px);
+  visibility: hidden;
+}
+
+.comunas.ver-seccion .text {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 1s;
+  transform: translateY(0);
+}
+
+.comunas.ver-seccion .text:last-child {
+  margin-bottom: 30px;
+}
+
+.comunas.ver-seccion .text .texto-resaltado {
+  color: var(--color-primary);
+}
+
+@media (min-width: 680px) {
+  #map {
+    height: 700px;
+    margin: auto;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .comunas .content-mapa .communes .zones ul li {
+    font-size: 18px;
+  }
+
+  .comunas .content-mapa .communes .zones ul li i {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .comunas {
+    background-color: #fff;
+  }
+
+  .comunas .content-mapa {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .comunas .content-mapa .mapa img {
+    width: 400px;
+  }
+
+  .comunas .content-mapa .communes > ul {
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .comunas .content-mapa .communes > ul li:nth-child(odd) {
+    padding-right: 10px;
+  }
+
+  .comunas .text,
+  .comunas .info .text {
+    font-size: 20px;
+    margin: auto;
+    width: 1000px;
+  }
+
+  .comunas .info .text {
+    font-size: 18px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1336px) {
+  .comunas .content-mapa img {
+    max-width: 800px;
+  }
+}

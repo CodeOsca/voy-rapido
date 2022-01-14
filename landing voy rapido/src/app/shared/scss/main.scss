@@ -1,0 +1,45 @@
+.container-main {
+    position: relative;
+}
+
+.container-main .content-main {
+    padding: 5px 0;
+}
+
+.container-main .header-main .title-main,
+.container-main .header-main .title-main {
+    background-color: #f2f2f2;
+    border: none;
+    cursor: default;
+    font-size: 16px;
+    letter-spacing: .3px;
+    margin: 0;
+    outline: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.container-main .header-main .title-main .fas {
+    margin-right: 10px;
+}
+
+@media (min-width: 480px) {
+    .container-main .content-main {
+        padding: 5px 10px;
+    }
+}
+
+@media (min-width: 680px) {
+    .container-main .header-main .title-main {
+        border-radius: 0 0 10px 0;
+        display: inline-block;
+        width: 250px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-main .content-main {
+        padding: 10px 20px;
+    }
+}

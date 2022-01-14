@@ -1,0 +1,119 @@
+<div class="container-modal" [ngClass]="{ ver: ver }">
+  <div class="modal">
+    <aside class="header-modal">
+      <h2 class="title-modal">{{ title }}</h2>
+      <i class="fas fa-times-circle" (click)="cerrar.emit(false)"></i>
+    </aside>
+    <section class="content-modal">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-street-view"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('deliveryName') }"
+            >Campo requerido</span
+          >
+          <label class="label">Nombre de cliente</label>
+          <input placeholder="Nombre" formControlName="deliveryName" />
+        </div>
+
+        <div class="content-input color-two select">
+          <i matSuffix class="fas fa-map-marked-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('deliveryCommuna') }"
+            >Campo requerido</span
+          >
+          <label class="label">Comuna</label>
+          <input
+            style="text-transform: capitalize"
+            placeholder="Comuna"
+            formControlName="deliveryCommuna"
+            (keyup)="filterSelect($event)"
+            (blur)="blurSeleccionarFilter()"
+            (click)="verSelect = true"
+          />
+          <ul class="content-options" [ngClass]="{ ver: verSelect }">
+            <li
+              class="option"
+              *ngFor="let comuna of selectFilter"
+              (click)="clickSeleccionarFilter(comuna)"
+            >
+              {{ comuna.name | titlecase }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-phone-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('deliveryPhone') }"
+            >Campo requerido</span
+          >
+          <span
+            class="mensaje-error"
+            [ngClass]="{
+              error: form.get('deliveryPhone')?.hasError('pattern')
+            }"
+            >Formato invalido</span
+          >
+          <label class="label">Teléfono</label>
+          <input placeholder="Teléfono" formControlName="deliveryPhone" />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-map-marker-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('deliveryAddress') }"
+            >Campo requerido</span
+          >
+          <label class="label">Dirección de envío</label>
+          <app-input-google-place
+            placeholder="Dirección de envío"
+            formControlName="deliveryAddress"
+          ></app-input-google-place>
+        </div>
+
+        <div class="content-input color-two textarea">
+          <i matSuffix class="fas fa-book-reader"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('addressDetails') }"
+            >Campo requerido</span
+          >
+          <label class="label"
+            >Detalles (Número de departamento/casa,...)</label
+          >
+
+          <textarea
+            rows="4"
+            placeholder="Detalles (Número de departamento/casa,...)"
+            formControlName="addressDetails"
+          ></textarea>
+        </div>
+
+        <div class="content-input color-two textarea">
+          <i matSuffix class="fas fa-book-reader"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('observations') }"
+            >Campo requerido</span
+          >
+          <label class="label">Observaciones</label>
+          <textarea
+            rows="4"
+            placeholder="Observaciones"
+            formControlName="observations"
+          ></textarea>
+        </div>
+        <aside class="footer-modal">
+          <button class="button-modal ripple-efect" [disabled]="form.invalid">
+            {{ titleButton }} <i class="fas fa-check-circle"></i>
+          </button>
+        </aside>
+      </form>
+    </section>
+  </div>
+</div>

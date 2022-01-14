@@ -1,0 +1,78 @@
+<div class="container-modal" [ngClass]="{ ver: ver }">
+  <div class="modal">
+    <aside class="header-modal">
+      <h2 class="title-modal">Detalles del producto</h2>
+      <i class="fas fa-times-circle" (click)="cerrar.emit(false)"></i>
+    </aside>
+    <section class="content-modal">
+      <div class="detalles">
+        <div class="content-detalle">
+          <i class="fas fa-calendar-check"></i>
+          <div class="info">
+            <p class="label">Nombre del cliente</p>
+            <p class="text-info">{{ product.deliveryName }}</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-calendar-check"></i>
+          <div class="info">
+            <p class="label">Télefono del cliente</p>
+            <p class="text-info">{{ product.deliveryPhone }}</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-dollar-sign"></i>
+          <div class="info">
+            <p class="label">Precio</p>
+            <p class="text-info">{{ product.price }}</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-calendar-plus"></i>
+          <div class="info">
+            <p class="label">Comuna</p>
+            <p class="text-info">{{ product.deliveryCommuna.name }}</p>
+          </div>
+        </div>
+
+        <!-- COMUNA -->
+        <div class="content-detalle">
+          <i class="fas fa-map-marked-alt"></i>
+          <div class="info">
+            <p class="label">Dirección</p>
+            <p class="text-info">{{ product.deliveryAddress }} <br /></p>
+          </div>
+        </div>
+
+        <!-- COMUNA -->
+        <div class="content-detalle">
+          <i class="fas fa-map-marked-alt"></i>
+          <div class="info">
+            <p class="label">Detalles (Número de departamento/casa,...)</p>
+            <p class="text-info">{{ product.addressDetails }} <br /></p>
+          </div>
+        </div>
+
+        <!-- NOMBRE DEL CLIENTE -->
+        <div class="content-detalle">
+          <i class="fas fa-street-view"></i>
+          <div class="info">
+            <p class="label">Observaciones</p>
+            <p class="text-info">{{ product.observations }} <br /></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="footer-modal">
+      <button
+        class="button-modal close ripple-efect"
+        (click)="cerrar.emit(false)"
+      >
+        Cerrar <i class="fas fa-times-circle"></i>
+      </button>
+    </aside>
+  </div>
+</div>

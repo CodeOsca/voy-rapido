@@ -1,0 +1,41 @@
+pipelines:
+  default:
+    - step:
+        name: 'default pipeline'
+        caches:
+          - node
+        script:
+          - echo 'running pipeline'
+  branches:
+    develop:
+      - step:
+          name: 'loading voyrapido to S3'
+          caches:
+            - node
+          script:
+            - apt-get install -y zip
+            - zip -r voyrapido.zip .
+            - pipe: atlassian/aws-code-deploy:0.2.10
+              variables:
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                APPLICATION_NAME: $APPLICATION_NAME
+                S3_BUCKET: $S3_BUCKET
+                COMMAND: 'upload'
+                ZIP_FILE: 'voyrapido.zip'
+                VERSION_LABEL: 'voyrapido-1.0.0'
+    feature/*:
+        - step:
+            name: 'update on your branch'
+            caches:
+              - node
+            script:
+              - echo 'running on your branch'
+    master:
+        - step:
+            name: 'has no configurations'
+            caches:
+              - node
+            script:
+              - echo 'has no configurations branch master'

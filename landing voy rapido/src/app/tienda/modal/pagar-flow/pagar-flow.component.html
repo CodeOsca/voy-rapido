@@ -1,0 +1,103 @@
+<div class="container-modal-two" [ngClass]="{ ver: ver }">
+  <div class="modal-two">
+    <aside class="header-modal-two">
+      <i class="fas fa-dollar-sign"></i>
+      <i class="fas fa-times close" (click)="cerrar.emit(false)"></i>
+    </aside>
+    <section class="content-modal-two">
+      <h2 class="title-amount">Pagar despacho ({{ datos.retirementDate }})</h2>
+      <h3 class="amount">
+        <i class="fas fa-dollar-sign"></i>{{ datos.amount }}
+      </h3>
+      <form [formGroup]="form" class="cupon">
+        <p class="mensaje-cupon">¿Posees un cupón de descuento?</p>
+        <p class="sub-mensaje-cupon">Puedes ingresarlo aquí</p>
+        <input placeholder="Ingresar cupon..." formControlName="coupon" />
+      </form>
+
+      <div class="detalles" *ngIf="transferencia; else elseButtons">
+        <span class="return" (click)="transferencia = false"> Cancelar </span>
+        <div class="content-detalle">
+          <i class="fas fa-building"></i>
+          <div class="info">
+            <p class="label">Empresa</p>
+            <p class="text-info">Voyrapido SPA</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-id-card"></i>
+          <div class="info">
+            <p class="label">RUT</p>
+            <p class="text-info">771568610</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-building"></i>
+          <div class="info">
+            <p class="label">Banco</p>
+            <p class="text-info">Banco ITAU</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-credit-card"></i>
+          <div class="info">
+            <p class="label">Tipo de cuenta</p>
+            <p class="text-info">Cuenta corriente</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-credit-card"></i>
+          <div class="info">
+            <p class="label">Numero de cuenta</p>
+            <p class="text-info">0220342928</p>
+          </div>
+        </div>
+
+        <div class="content-detalle">
+          <i class="fas fa-envelope"></i>
+          <div class="info">
+            <p class="label">Correo</p>
+            <p class="text-info">admin@hellomundochile.com</p>
+          </div>
+        </div>
+
+        <div class="confirmar">
+          <input
+            style="display: none"
+            type="file"
+            accept=".png, .jpg, .jpeg"
+            (change)="onUpload($event)"
+            id="file"
+          />
+          <label class="label-file" for="file">
+            <span>{{ textImagen }}</span>
+            <i class="fas fa-file-upload"></i>
+          </label>
+          <button
+            class="btn-img ripple-efect"
+            [disabled]="!file"
+            (click)="changeToRevision()"
+          >
+            Confirmar pago
+          </button>
+        </div>
+      </div>
+
+      <ng-template #elseButtons>
+        <div class="content-button">
+          <button class="btn-img ripple-efect" (click)="payment()">
+            <span class="text">Pagar con</span>
+            <img src="./assets/imagenes/flow.png" alt="Boton pagar flow" />
+          </button>
+          <button class="btn-img ripple-efect" (click)="transferencia = true">
+            Pagar por transferencia
+          </button>
+        </div>
+      </ng-template>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<section class="alert" style="--display: {{ display }};">
+    <p class="alert-mensaje">
+        <i class="fas" [ngClass]="className" style="--color: {{ color }};"></i>
+        {{ alert.mensaje }}
+    </p>
+    <i class="fas fa-times x-alert" (click)="closeAlert()"></i>
+</section>

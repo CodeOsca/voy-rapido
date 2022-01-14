@@ -1,0 +1,135 @@
+.content-info-file {
+  background-color: #fff;
+  border-radius: 5px;
+  bottom: 20px;
+  box-shadow: 0 2px 5px rgba($color: #000000, $alpha: 0.4);
+  left: 50%;
+  max-width: 500px;
+  opacity: 0;
+  padding: 10px 20px;
+  position: fixed;
+  transition: 0.5s;
+  transform: translateX(-50%) translateY(200px);
+  visibility: hidden;
+  width: 90%;
+  z-index: 110;
+}
+
+.content-info-file .fas {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 12px;
+  height: 20px;
+  justify-content: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  transition: 0.3s;
+  width: 20px;
+}
+
+.content-info-file .fas:hover {
+  background-color: #f9f9f9;
+}
+
+.content-info-file.ver {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.content-info-file .title-info {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.content-info-file .info {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-info-file .info .info-name {
+  font-size: 12px;
+  margin: 0;
+}
+
+.content-info-file .info .btn-info {
+  background-color: var(--color-secondary);
+  border-radius: 3px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 5px 10px;
+  text-align: center;
+  width: 150px;
+}
+
+.content-main.margin-botton {
+  margin-bottom: 40px;
+}
+
+.info-pagar {
+  align-items: center;
+  background-color: #fff;
+  bottom: 0;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.info-pagar img {
+  max-width: 150px;
+  width: 40%;
+}
+
+.info-pagar .content-info {
+  font-size: 12px;
+}
+
+.info-pagar .content-info a,
+.info-pagar .content-info a:visited {
+  background-color: var(--color-secondary);
+  border: none;
+  border-radius: 3px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  outline: none;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.info-pagar .content-info .mensaje {
+  line-height: 1em;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .info-pagar {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-pagar {
+    bottom: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    right: 10px;
+  }
+
+  .info-pagar .content-info {
+    font-size: 14px;
+  }
+}

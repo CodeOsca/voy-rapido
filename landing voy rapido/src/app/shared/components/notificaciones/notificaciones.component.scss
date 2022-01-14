@@ -1,0 +1,185 @@
+.notificaciones {
+    background-color: #fff;
+    height: 100vh;
+    right: -105%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    padding-top: 0;
+    position: fixed;
+    top: 0;
+    transition: .5s;
+    width: 100%;
+    z-index: 110;
+}
+
+.notificaciones::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+.notificaciones::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.notificaciones::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.notificaciones::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.notificaciones.ver {
+    right: 0;
+}
+
+.notificaciones .content-link {
+    bottom: -10px;
+    border-top: 1px solid var(--color-p-dark);
+    background-color: #fff;
+    position: sticky;
+}
+
+.notificaciones .content-link a,
+.notificaciones .content-link a:visited {
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.notificaciones .content-notificaciones .notificacion {
+    background-color: #fff;
+    border-radius: 10px;
+    color: #ccc;
+    cursor: default;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: .3s;
+}
+
+.notificaciones .content-notificaciones .notificacion.active {
+    background-color: #f2f2f2;
+    color: #000;
+    cursor: pointer;
+}
+
+.notificaciones .content-notificaciones .notificacion .header-notificacion {
+    align-items: center;
+    color: #ccc;
+    display: flex;
+    font-size: 12px;
+    font-weight: 500;
+    justify-content: space-between;
+    letter-spacing: .3px;
+    margin-bottom: 10px;
+}
+
+.notificaciones .content-notificaciones .notificacion.active .header-notificacion {
+    color: var(--color-primary);
+}
+
+.notificaciones .content-notificaciones .notificacion .header-notificacion p {
+    align-items: center;
+    display: flex;
+    margin:  0;
+}
+
+.notificaciones .content-notificaciones .notificacion .header-notificacion p .fas {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.notificaciones .content-notificaciones .notificacion .text {
+    font-size: 14px;
+    margin: 0;
+}
+
+.notificaciones .header-notificaciones {
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-p-dark);
+    color: var(--color-p-dark);
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: space-between;
+    letter-spacing: .5px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    position: sticky;
+    text-transform: uppercase;
+    top: 0;
+    z-index: 1;
+}
+
+.notificaciones .header-notificaciones p {
+    margin: 0;
+}
+
+.notificaciones .header-notificaciones .fas {
+    align-items: center;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    height: 25px;
+    justify-content: center;
+    transition: .3s;
+    width: 25px;
+}
+
+.notificaciones .header-notificaciones .fas:hover {
+    background-color: var(--color-secondary);
+}
+
+.notificaciones .marcar {
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    justify-content: flex-end;
+    letter-spacing: .4px;
+    margin-bottom: 5px;
+    padding: 5px;
+    position: sticky;
+    text-decoration: underline;
+    top: 41px;
+}
+
+@media (min-width: 480px) {
+    .notificaciones {
+        border-radius: 5px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+        height: 70%;
+        max-height: calc(100vh - 60px);
+        right: -350px;
+        top: 55px;
+        width: 300px;
+    }
+
+    .notificaciones.ver {
+        right: 5px;
+    }
+}
+
+@media (min-width: 680px) {
+    .notificaciones {
+        top: 65px;
+    }
+}
+
+@media (min-width: 768px) {
+    .notificaciones {
+        max-height: 450px;
+        right: -400px;
+        width: 350px;
+    }
+}

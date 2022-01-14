@@ -1,0 +1,18 @@
+<div class="container-modal" [ngClass]="{ 'ver': ver }">
+    <div class="modal">
+        <aside class="header-modal">
+            <h2 class="title-modal">{{ datos.titulo }}</h2>
+            <i class="fas fa-times-circle" (click)="cerrar.emit(false)"></i>
+        </aside>
+        <section class="content-modal">
+            <div class="content-confirmar">
+            	<p>{{ datos.mensaje }}</p>
+            	<p class="extra">{{ datos.extra }}</p>
+            </div>
+        </section>
+        <aside class="footer-modal">
+            <button class="button-modal ripple-efect" (click)="aceptar.emit(true)">Aceptar <i class="fas fa-check-circle"></i></button>
+            <button class="button-modal close ripple-efect" (click)="cerrar.emit(false)">Cerrar <i class="fas fa-times-circle"></i></button>
+        </aside>
+    </div>
+</div>

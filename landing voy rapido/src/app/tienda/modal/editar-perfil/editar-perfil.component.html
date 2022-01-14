@@ -1,0 +1,184 @@
+<div class="container-modal-two" [ngClass]="{ ver: ver }">
+  <div class="modal-two">
+    <aside class="header-modal-two">
+      <i class="fas fa-user-edit"></i>
+      <i class="fas fa-times close" (click)="cerrar.emit(false)"></i>
+    </aside>
+    <section class="content-modal-two">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-street-view"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('email') }"
+            >Campo requerido</span
+          >
+          <label class="label">Correo</label>
+          <input type="email" placeholder="Correo" formControlName="email" />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-street-view"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('storeName') }"
+            >Campo requerido</span
+          >
+          <label class="label">Nombre de la tienda</label>
+          <input
+            placeholder="Nombre de la tienda"
+            formControlName="storeName"
+          />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-map-marker-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('name') }"
+            >Campo requerido</span
+          >
+          <label class="label">Nombre de contacto</label>
+          <input placeholder="Nombre de contacto" formControlName="name" />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-phone-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('phone') }"
+            >Campo requerido</span
+          >
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: form.get('phone')?.hasError('pattern') }"
+            >Formato invalido</span
+          >
+          <label class="label">Teléfono 1</label>
+          <input placeholder="Teléfono" formControlName="phone" />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-phone-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('phoneTwo') }"
+            >Campo requerido</span
+          >
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: form.get('phoneTwo')?.hasError('pattern') }"
+            >Formato invalido</span
+          >
+          <label class="label">Teléfono 2</label>
+          <input placeholder="Teléfono" formControlName="phoneTwo" />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-map-marker-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('instagram') }"
+            >Campo requerido</span
+          >
+          <label class="label">Usuario de instagram</label>
+          <input
+            placeholder="Usuario de instagram"
+            formControlName="instagram"
+          />
+        </div>
+
+        <div class="content-input color-two">
+          <i matSuffix class="fas fa-map-marker-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('website') }"
+            >Campo requerido</span
+          >
+          <label class="label">Pagina WEB</label>
+          <input placeholder="Pagina WEB" formControlName="website" />
+        </div>
+
+        <div class="content-input color-two select">
+          <i matSuffix class="fas fa-map-marker-alt"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('commune') }"
+            >Campo requerido</span
+          >
+          <label class="label">Comuna</label>
+          <input
+            style="text-transform: capitalize"
+            placeholder="Comuna"
+            formControlName="commune"
+            (keyup)="filterSelect($event)"
+            (blur)="blurSeleccionarFilter()"
+            (click)="verSelect = true"
+          />
+          <ul class="content-options" [ngClass]="{ ver: verSelect }">
+            <li
+              class="option"
+              *ngFor="let comuna of selectFilter"
+              (click)="clickSeleccionarFilter(comuna)"
+            >
+              {{ comuna.name | titlecase }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="content-input color-two textarea">
+          <i matSuffix class="fas fa-book-reader"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('storeDetails') }"
+            >Campo requerido</span
+          >
+          <label class="label">Detalles de su tienda</label>
+          <textarea
+            rows="4"
+            placeholder="Detalles de su tienda"
+            formControlName="storeDetails"
+          ></textarea>
+        </div>
+
+        <div class="content-input color-two textarea">
+          <i matSuffix class="fas fa-book-reader"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('withdrawalAddress') }"
+            >Campo requerido</span
+          >
+          <label class="label">Dirección de retiro</label>
+          <app-input-google-place
+            placeholder="Dirección de retiro"
+            formControlName="withdrawalAddress"
+          ></app-input-google-place>
+        </div>
+
+        <div class="content-input color-two textarea">
+          <i matSuffix class="fas fa-book-reader"></i>
+          <span
+            class="mensaje-error"
+            [ngClass]="{ error: verificarInput('address') }"
+            >Campo requerido</span
+          >
+          <label class="label"
+            >Detalles (Número de departamento/casa,...)</label
+          >
+
+          <textarea
+            rows="4"
+            placeholder="Detalles (Número de departamento/casa,...)"
+            formControlName="address"
+          ></textarea>
+        </div>
+
+        <aside class="footer-modal-two">
+          <button class="button-modal-two ripple-efect">
+            Aceptar <i class="fas fa-check-circle"></i>
+          </button>
+        </aside>
+      </form>
+    </section>
+  </div>
+</div>

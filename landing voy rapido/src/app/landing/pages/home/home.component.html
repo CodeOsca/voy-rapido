@@ -1,0 +1,261 @@
+<app-header></app-header>
+
+<app-scroll>
+  <div id="home" #home>
+    <app-principal></app-principal>
+  </div>
+
+  <section class="comunas" id="cobertura" #comuna>
+    <div class="content-descripcion">
+      <h2 class="titulo-seccion">
+        PREOCUPATE DE LAS VENTAS NOSOTROS DE LOS DESPACHOS
+      </h2>
+      <p class="text">
+        Funcionamos dentro de toda la
+        <span class="texto-resaltado">Region Metropolitana</span>. Te enviamos
+        tus productos al lugar donde desees en un maximo de
+        <span class="texto-resaltado">24 Horas</span>.
+      </p>
+      <p class="text">
+        Condiciones: los productos tienen un
+        <span class="texto-resaltado">tamaño maximo de 60x60x40</span> y un
+        total de <span class="texto-resaltado">25kg</span>.
+      </p>
+    </div>
+    <div class="content-mapa">
+      <img src="./assets/mapa/mapa-localizacion.png" alt="Comunas">
+      <div class="communes">
+        <div class="zones">
+          <ul>
+            <li *ngFor="let zone of zones" style="--color: {{ zone.color }}">
+              <i class="fas fa-map-marker-alt"></i>
+              {{ zone.name }}
+            </li>
+          </ul>
+        </div>
+        <ul>
+          <li *ngFor="let commune of communes">
+            <span class="number" [ngClass]="{ 'one': commune.zone === 1, 'two': commune.zone === 2, 'three': commune.zone === 3 }">{{ (commune.number)?commune.number:'-' }}</span>. <span>{{ commune.name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="seccion-error" *ngIf="verErrorComunas && !loaderComunas">
+      <p class="mensaje-error">
+        Ups! Ha ocurrido un error al cargar las comunas...
+      </p>
+      <img
+        loading="lazy"
+        src="./assets/svg/error-communes.svg"
+        alt="Imagen error de carga de comunas"
+      />
+      <button class="btn-error" (click)="getComunas()">
+        Volver a intentar
+      </button>
+    </div>
+    <div class="loader" *ngIf="loaderComunas">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div> -->
+    <div class="info">
+      <p class="text">
+        <i class="fas fa-info-circle"></i> Servicios disponibles en la Región
+        Metropolitana. Recorremos diariamente todas las comunas de Santiago
+        Urbano y 2 veces por semana viajamos a Provincias.
+      </p>
+    </div>
+  </section>
+
+  <section class="nosotros" id="nosotros" #nosotros>
+    <h2 class="titulo-seccion">Nosotros</h2>
+    <div class="info-nosotros">
+      <p class="texto">
+        “Somos un emprendimiento familiar que se proyectó como empresa en mayo del año 2020. Se creó con el propósito de dar una solución efectiva y eficiente a Microempresarios y Pymes chilenas, en el proceso de distribución de sus productos, con el fin de mejorar la rentabilidad de su negocio.”
+      </p>
+    </div>
+    <div class="estandares" #estandares>
+      <h3 class="titulo-estandares">Nuestros Estandares</h3>
+      <ul class="list-items">
+        <li class="item" style="--i: 1">
+          Te garantizamos un servicio express de entregas en menos de 24 horas.
+        </li>
+        <li class="item" style="--i: 2">
+          Podrás externalizar el proceso de entregas de tus ventas.
+        </li>
+        <li class="item" style="--i: 2">
+          Nos distinguimos por ofrecer un servicio personalizado al alcance de tu bolsillo.
+        </li>
+        <li class="item" style="--i: 3">
+          Te aseguramos el cuidado de tus productos, por medio de un servicio 100% confiable.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="servicios" id="servicios" #servicios>
+    <h2 class="titulo-seccion">Si hacemos por ti...</h2>
+    <aside class="content-servicios ofrecidos" #seccion1>
+      <img
+        loading="lazy"
+        src="./assets/svg/services.svg"
+        alt="Servicios disponibles"
+      />
+      <ul class="list-items">
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Servicios de despachos de productos.</span
+          >
+        </li>
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Abastecimiento de stock en puntos de venta.</span
+          >
+        </li>
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Servicio de intermediario para envíos a regiones vía Starken y Chilexpress.</span
+          >
+        </li>
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Fletes y Mudanzas.</span
+          >
+        </li>
+      </ul>
+    </aside>
+    <h2 class="titulo-seccion" style="margin-top: 100px;">No te podriamos ayudar con...</h2>
+    <aside class="content-servicios no-ofrecidos" #seccion2>
+      <img
+        loading="lazy"
+        src="./assets/svg/no-services.svg"
+        alt="No realizamos"
+      />
+      <ul class="list-items">
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Envíos por cobrar.</span
+          >
+        </li>
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Retiro de compras online.</span
+          >
+        </li>
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Delivery de comida rápida.</span
+          >
+        </li>
+        <li class="item">
+          <span class="info-item"
+            ><i class="fas fa-circle"></i>Transporte de plantas, animales y productos ilegales.</span
+          >
+        </li>
+      </ul>
+    </aside>
+
+    <div class="content-buttons">
+      <div class="content-button">
+        <div class="lineas">
+          <span *ngFor="let i of [1,2,3,4]" class="line line-{{i}}"></span>
+        </div>
+        <a class="button ripple-efect" [routerLink]="['registrarse']">Registra tu negocio →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seguimiento" id="seguimiento" #seguimiento>
+    <div class="content-seguimiento">
+      <h2 class="titulo-seccion">Sigue tu despacho</h2>
+      <form [formGroup]="formSimpliroute" (ngSubmit)="submitSimpliroute()">
+        <input type="text" placeholder="Numero de orden" formControlName="tracking">
+        <button class="btn-simpliroute" type="submit" [disabled]="formSimpliroute.invalid">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <p class="text">Ingrese el código que recibiste por correo electrónico</p>
+      <div class="content-marcador">
+        <img class="marcador" src="./assets/imagenes/marcador.png">
+      </div>
+      <img class="fondo" src="./assets/imagenes/fondo.png">
+    </div>
+  </section>
+
+  <app-swiper></app-swiper>
+
+  <section
+    class="contactanos"
+    id="contactanos"
+    [ngClass]="{ 'not-images': photos.length === 0 && !loaderPhotos }"
+    #contactanos
+  >
+    <div class="content-contactanos">
+      <p class="text-dudas">¿Tienes mas dudas?</p>
+      <h3 class="text-contactanos">Contactanos!</h3>
+      <p class="text-mensaje">
+        Puedes hacerlo utilizando nuestras redes sociales,
+        <span class="resaltar">envianos un mensaje!</span> sera contestado a la
+        brevedad.
+      </p>
+    </div>
+    <div class="content-iconos" #iconos>
+      <div class="iconos">
+        <a href="{{ whatsapp }}" target="_blank"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+        <a href="{{ instagram }}" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="{{ facebook }}" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="galeria"
+    [ngClass]="{ 'not-images': photos.length === 0 && !loaderPhotos }"
+  >
+    <div class="seccion-error" *ngIf="verErrorPhotos && !loaderPhotos">
+      <p class="mensaje-error">
+        Ups! Ha ocurrido un error al cargar las imagenes...
+      </p>
+      <img
+        loading="lazy"
+        src="./assets/svg/error-gallery.svg"
+      />
+      <button class="btn-error" (click)="getPhotos()">Volver a intentar</button>
+    </div>
+    <div class="loader" *ngIf="loaderPhotos">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div
+      class="grid-galeria"
+      [ngClass]="{ imagenes: verImagenes }"
+      *ngIf="photos.length > 0 && !verErrorPhotos && !loaderPhotos"
+    >
+      <div class="grid">
+        <img
+          *ngFor="let photo of photos"
+          loading="lazy"
+          class="grid-item"
+          [src]="API + photo.name"
+        />
+      </div>
+    </div>
+
+    <div
+      class="content-button"
+      *ngIf="photos.length > 0 && !verErrorPhotos && !loaderPhotos"
+    >
+      <button (click)="buttonImagenes()">{{ textButton }}</button>
+    </div>
+  </section>
+</app-scroll>
+<app-footer></app-footer>

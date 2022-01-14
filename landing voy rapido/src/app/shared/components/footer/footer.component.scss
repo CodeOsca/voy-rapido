@@ -1,0 +1,202 @@
+.footer {
+    background-color: #000;
+    font-size: 12px;
+    padding: 50px 0;
+    padding-top: 100px;
+    text-transform: uppercase;
+}
+
+.footer .content-buttons {
+    margin: 30px 0;
+    text-align: center;
+
+    .content-button {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 15px;
+        max-width: 500px;
+        padding: 0 10px;
+
+        a.button {
+          background-color: var(--color-primary);
+          border: none;
+          border-radius: 3px;
+          color: var(--text-primary);
+          font-size: 14px;
+          outline: none;
+          padding: 8px;
+          text-decoration: none;
+          width: 100%;
+
+          &:visited {
+            color: var(--text-primary);
+          }
+        }
+
+        .lineas {
+          align-items: flex-end;
+          display: inline-flex;
+          flex-direction: column;
+          gap: 3px;
+          justify-content: center;
+          height: 100%;
+          width: 50px;
+
+          .line {
+            background-color: var(--color-primary);
+            border-radius: 5px;
+            display: inline-block;
+            height: 5px;
+            width: 100%;
+
+            &.line-1 {
+              width: 60%;
+            }
+            &.line-2 {
+              width: 35%;
+            }
+            &.line-4 {
+              width: 25%;
+            }
+          }
+        }
+      }
+}
+
+.footer .contacto {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer .contacto .content-logo {
+    align-items: center;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.footer .contacto .content-logo img {
+    position: relative;
+    width: 100px;
+}
+
+.footer .info-contacto {
+    color: #fff;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.footer .info-contacto .footer-info {
+    letter-spacing: .2px;
+    margin: 0;
+    padding: 2px 5px;
+    text-align: center;
+}
+
+.footer .info-contacto .footer-info .fas {
+    margin-right: 10px;
+}
+
+.footer .nav {
+    background-color: var(--color-primary);
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.footer .nav .item {
+    list-style: none;
+}
+
+.footer .nav .item a,
+.footer .nav .item a:visited {
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+}
+
+.footer .sociales {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.footer .sociales a .fab,
+.footer .sociales a:visited .fab {
+    color: #fff;
+    cursor: pointer;
+    font-size: 36px;
+    margin: 0 5px;
+}
+
+.footer .texto {
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+}
+
+.footer .texto .fas {
+    color: red;
+    margin: 0 5px;
+}
+
+.footer .texto a,
+.footer .texto a:visited {
+    color: #fff;
+}
+
+@media (min-width: 680px) {
+    .footer .content-buttons {
+        .content-button {
+            a.button {
+                box-shadow: var(--box-shadow);
+                font-size: 16px !important;
+                font-weight: 600 !important;
+                letter-spacing: 1px !important;
+                padding: 15px !important;
+                text-transform: uppercase !important;
+    
+                &:visited {
+                    color: var(--text-secondary);
+                }
+                }
+        
+                .lineas {
+                gap: 5px !important;
+                width: 80px !important;
+        
+                .line {
+                    height: 8px !important;
+                    box-shadow: var(--box-shadow);
+                }
+                }
+        }
+    }
+
+    .footer .nav {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer .nav .item a {
+        padding: 5px 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer .info-contacto {
+        align-items: center;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+}

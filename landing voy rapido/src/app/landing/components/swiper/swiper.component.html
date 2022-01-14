@@ -1,0 +1,64 @@
+<section class="clientes">
+  <swiper [config]="config" *ngIf="comments.length > 0; else elseSwipper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let user of comments">
+        <div class="testimonial-box">
+          <img loading="lazy" src="assets/imagenes/quote.svg" class="quote" />
+          <div class="content">
+            <p>
+              {{ user.comment.description }}
+            </p>
+            <div class="detalles">
+              <div class="img-box">
+                <img
+                  loading="lazy"
+                  [src]="API + user.image"
+                  alt="imagen de perfil"
+                />
+              </div>
+              <h3>
+                {{ user.name }}<br /><br />
+                <span>
+                  <i class="fas fa-star" *ngFor="let i of [1, 2, 3, 4, 5]"></i>
+                  <span
+                    class="starts"
+                    [style]="'--porc:' + user.comment.rating * 20 + '%'"
+                  >
+                    <i
+                      class="fas fa-star"
+                      *ngFor="let i of [1, 2, 3, 4, 5]"
+                    ></i>
+                  </span>
+                </span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </swiper>
+
+  <ng-template #elseSwipper>
+    <div class="seccion-error" *ngIf="!verErrorComments">
+      <img loading="lazy" src="./assets/svg/error-comments.svg" />
+    </div>
+  </ng-template>
+
+  <div class="seccion-error" *ngIf="verErrorComments && !loaderComments">
+    <p class="mensaje-error">
+      Ups! Ha ocurrido un error al cargar los comentarios...
+    </p>
+    <img loading="lazy" src="./assets/svg/error-comments.svg" />
+    <button class="btn-error" (click)="getComments()">Volver a intentar</button>
+  </div>
+  <div class="loader" *ngIf="loaderComments">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</section>

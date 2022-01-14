@@ -1,0 +1,27 @@
+<div class="notificaciones" [ngClass]="{ ver: verNotificaciones }">
+  <div class="header-notificaciones">
+    <p>Notificaciones</p>
+    <i class="fas fa-times" (click)="close()"></i>
+  </div>
+  <div class="content-notificaciones">
+    <span class="marcar" (click)="setAllInView()"
+      >Marcar todas como leidas</span
+    >
+    <div
+      class="notificacion"
+      *ngFor="let notifitacion of notifications; let i = index"
+      [ngClass]="{ active: !notifitacion.wasSeen }"
+    >
+      <div class="header-notificacion">
+        <p><i class="fas fa-info-circle"></i>{{ notifitacion.title }}</p>
+        <span>{{ notifitacion.createdAt | date: "medium" }}</span>
+      </div>
+      <p class="text">
+        {{ notifitacion.description }}
+      </p>
+    </div>
+    <div class="content-link">
+      <a class="link" routerLink="/tienda">Ver Todas</a>
+    </div>
+  </div>
+</div>

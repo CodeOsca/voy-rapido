@@ -1,0 +1,8 @@
+<input
+  ngx-google-places-autocomplete
+  (onAddressChange)="handleAddressChange($event)"
+  [value]="currentValue"
+  [options]="options"
+  (input)="validate()"
+  #input
+/>

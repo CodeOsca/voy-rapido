@@ -1,0 +1,56 @@
+<div class="actividades">
+  <div class="transferencias" *ngIf="hasRevisions">
+    <div
+      class="content-transferencia"
+      *ngFor="let revision of dispatchesInRevision"
+    >
+      <p class="mensaje">
+        Su despacho con ID:
+        <a class="id" [routerLink]="['/tienda', 'despacho', revision._id]"
+          >({{ revision._id }})</a
+        >, por un monto de:
+        <span class="amount"
+          ><i class="fas fa-dollar-sign"></i>{{ revision.amount }}</span
+        >
+        se encuentra en proceso de revisión.
+      </p>
+    </div>
+
+    <div
+      class="content-transferencia"
+      *ngFor="let revision of subscriptionsInRevision"
+    >
+      <p class="mensaje">
+        Su subscripción con ID:
+        <a class="id" [routerLink]="['/tienda', 'resumen', revision._id]"
+          >({{ revision._id }})</a
+        >, por un monto de:
+        <span class="amount"
+          ><i class="fas fa-dollar-sign"></i>{{ revision.amount }}</span
+        >
+        se encuentra en proceso de revisión.
+      </p>
+    </div>
+  </div>
+  <div class="notificaciones">
+    <app-table
+      [columns]="columns"
+      laberPerPage="Actividades por página"
+      [data]="notifications"
+      [filterOptions]="filterOptions"
+    >
+      <ng-container matColumnDef="notification">
+        <th mat-header-cell *matHeaderCellDef>Todas las notificaciones</th>
+        <td mat-cell *matCellDef="let row" class="active">
+          <div class="content-header">
+            <span class="title-notificacion">{{ row.title }}</span>
+            <span class="date">{{ row.createdAt | date: "shortDate" }}</span>
+          </div>
+          <div class="contenido">
+            {{ row.description }}
+          </div>
+        </td>
+      </ng-container>
+    </app-table>
+  </div>
+</div>

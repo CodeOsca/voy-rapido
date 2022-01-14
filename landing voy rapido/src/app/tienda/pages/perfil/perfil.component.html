@@ -1,0 +1,176 @@
+<ng-container *ngIf="user">
+  <div class="container-main">
+    <section class="header-main">
+      <h2 class="title-main">
+        <i class="fas fa-cogs"></i>
+        <span>Mis datos</span>
+      </h2>
+    </section>
+
+    <section class="content-main">
+      <div class="container-perfil">
+        <section class="content-perfil">
+          <div class="img-options">
+            <img class="img" [src]="API + user?.image" alt="Imagen de perfil" />
+            <h3 class="title">{{ user?.name }}</h3>
+            <div class="options">
+              <i
+                class="fas fa-user-edit"
+                matTooltip="Actualizar datos"
+                (click)="verEditarPerfil = !verEditarPerfil"
+              ></i>
+              <i
+                class="fas fa-user-lock"
+                matTooltip="Cambiar contraseña"
+                routerLink="/recuperar-contraseña"
+              ></i>
+              <i
+                class="fas fa-image"
+                matTooltip="Cambiar imagen"
+                (click)="verSeleccionarImagen = !verSeleccionarImagen"
+              ></i>
+              <i
+                class="fas fa-star"
+                matTooltip="Calificar servicio"
+                (click)="verCalificarServicio = !verCalificarServicio"
+              ></i>
+            </div>
+          </div>
+          <div class="content-info">
+            <div class="content-detalle">
+              <i class="fas fa-envelope"></i>
+              <div class="info">
+                <p class="label">Correo</p>
+                <p class="text-info">{{ user?.email }}</p>
+              </div>
+            </div>
+
+            <div class="content-detalle title">
+              <i class="fas fa-store-alt"></i>
+              <div class="info">
+                <p class="label">Nombre de la tienda</p>
+                <p class="text-info" appFallbackText [data]="user.storeName">
+                  {{ user?.storeName }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-id-badge"></i>
+              <div class="info">
+                <p class="label">Nombre de contacto</p>
+                <p class="text-info">{{ user?.name }}</p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-phone-alt"></i>
+              <div class="info">
+                <p class="label">Teléfono 1</p>
+                <p class="text-info">{{ user?.phone }}</p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-phone-alt"></i>
+              <div class="info">
+                <p class="label">Teléfono 2</p>
+                <p class="text-info" appFallbackText [data]="user.phoneTwo">
+                  {{ user?.phoneTwo }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fab fa-instagram"></i>
+              <div class="info">
+                <p class="label">Usuario de instagram</p>
+                <p class="text-info" appFallbackText [data]="user.instagram">
+                  {{ user?.instagram }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-globe-americas"></i>
+              <div class="info">
+                <p class="label">Pagina web</p>
+                <p class="text-info" appFallbackText [data]="user.website">
+                  {{ user?.website }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-info-circle"></i>
+              <div class="info">
+                <p class="label">Detalles de su tienda</p>
+                <p class="text-info" appFallbackText [data]="user.storeDetails">
+                  {{ user?.storeDetails }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="info">
+                <p class="label">Comuna</p>
+                <p
+                  class="text-info"
+                  appFallbackText
+                  [data]="user.commune?.name"
+                >
+                  {{ user?.commune?.name }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-map-marked-alt"></i>
+              <div class="info">
+                <p class="label">Dirección de retiro</p>
+                <p
+                  class="text-info"
+                  appFallbackText
+                  [data]="user.withdrawalAddress"
+                >
+                  {{ user?.withdrawalAddress }}
+                </p>
+              </div>
+            </div>
+
+            <div class="content-detalle">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="info">
+                <p class="label">Detalles (Número de departamento/casa,...)</p>
+                <p class="text-info" appFallbackText [data]="user.address">
+                  {{ user?.address }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <div>
+    <app-editar-perfil
+      [user]="user"
+      [ver]="verEditarPerfil"
+      (cerrar)="verEditarPerfil = $event"
+      (userReturn)="updateUser($event)"
+    ></app-editar-perfil>
+    <app-seleccionar-imagen
+      [ver]="verSeleccionarImagen"
+      (cerrar)="verSeleccionarImagen = $event"
+      (imgReturn)="guardarImagenPerfil($event)"
+    ></app-seleccionar-imagen>
+    <app-calificar-servicio
+      [ver]="verCalificarServicio"
+      [comment]="user.comment"
+      (cerrar)="verCalificarServicio = $event"
+      (commentReturn)="setComment($event)"
+    ></app-calificar-servicio>
+  </div>
+</ng-container>

@@ -1,0 +1,40 @@
+<div class="container-modal-two" [ngClass]="{ ver: ver }">
+  <div class="modal-two">
+    <aside class="header-modal-two">
+      <i class="fas fa-image"></i>
+      <i class="fas fa-times close" (click)="cerrar.emit(false)"></i>
+    </aside>
+    <section class="content-modal-two">
+      <div class="content-imagen">
+        <input
+          type="file"
+          accept="image/gif, image/png, image/jpeg, image/jpg"
+          (change)="onUploadImg($event)"
+          id="img"
+          class="form-control file"
+        />
+        <label class="label-file ripple-efect" for="img">
+          Seleccionar imagen
+          <i class="fas fa-image"></i>
+        </label>
+        <img *ngIf="image" src="{{ croppedImage }}" />
+        <image-cropper
+          style="max-height: 300px"
+          *ngIf="imageChangedEvent && ver"
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1 / 1"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          [resizeToWidth]="170"
+          [resizeToHeight]="170"
+        ></image-cropper>
+      </div>
+    </section>
+    <aside class="footer-modal-two">
+      <button class="button-modal-two ripple-efect" (click)="imgReturn.emit(image)">
+        Aceptar <i class="fas fa-check-circle"></i>
+      </button>
+    </aside>
+  </div>
+</div>

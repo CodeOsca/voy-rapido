@@ -1,0 +1,231 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+@import "~swiper/swiper-bundle";
+@import "./src/app/shared/scss/table.scss";
+@import "./src/app/shared/scss/main.scss";
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$voyrapido-primary: mat-palette($mat-indigo);
+$voyrapido-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$voyrapido-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$voyrapido-theme: mat-light-theme(
+  (
+    color: (
+      primary: $voyrapido-primary,
+      accent: $voyrapido-accent,
+      warn: $voyrapido-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($voyrapido-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+// VARIABLES
+// COLORES
+:root {
+  --text-primary: #fff;
+  --text-p-light: #000;
+  --text-p-dark: #fff;
+  --color-primary: #de6438;
+  --color-p-light: #f6e162;
+  --color-p-dark: #d05c37;
+
+  --text-secondary: #fff;
+  --text-s-light: #000;
+  --text-s-dark: #fff;
+  --color-secondary: #4c565a;
+  --color-s-light: #fff;
+  --color-s-dark: #0e0a07;
+
+  --color-red: red;
+  --color-blue: cornflowerblue;
+  --color-green: limegreen;
+
+  --box-shadow: 0 10px 20px rgb(0 0 0 / 30%);
+
+  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+// FIN VARIABLES
+
+// ESTILOS GENERALES
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: #fff;
+  font-family: var(--font-family) !important;
+  min-height: 100vh;
+  width: 100%;
+}
+
+* {
+  font-family: var(--font-family) !important;
+}
+
+.fas {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands" !important;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+// FIN ESTILOS GENERALES
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.color_red {
+  color: var(--color-red);
+}
+
+.color_green {
+  color: var(--color-green);
+}
+
+.snackbar-error {
+  background-color: var(--color-complementario-oscuro-2);
+  color: white;
+}
+
+.snackbar-success {
+  background-color: rgb(45, 225, 0);
+  color: white;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background: var(--color-s-dark);
+  border: none;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  height: 30px;
+  outline: none;
+  transition: 0.3s;
+  width: 30px;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--color-secondary);
+}
+
+.swiper-slide.swiper-slide-prev,
+.swiper-slide.swiper-slide-next {
+  transform: translate3d(0px, 0px, -108.152px) rotateX(0deg) rotateY(0deg)
+    scale(1) !important;
+}
+
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right {
+  background: none !important;
+}
+
+.mat-expansion-panel-header,
+.mat-expansion-panel-header:hover {
+  background-color: var(--color-secondary) !important;
+  text-transform: uppercase !important;
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  color: var(--text-secondary) !important;
+}
+
+.mat-expansion-indicator::after {
+  border-color: var(--text-secondary);
+}
+
+.content-figures {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.content-figures * {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.content-figures .figure-1 {
+  background: linear-gradient(
+    170deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(246, 225, 98, 1) 100%
+  );
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.content-figures .figure-2 {
+  background: linear-gradient(
+    110deg,
+    rgba(222, 100, 56, 1) 0%,
+    rgba(246, 225, 98, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  clip-path: polygon(0 50%, 0 100%, 50% 100%);
+}
+
+.content-figures .figure-3 {
+  background: #0e0a07;
+  clip-path: polygon(70% 70%, 100% 70%, 100% 100%, 50% 100%);
+}

@@ -1,0 +1,39 @@
+<app-loader></app-loader>
+<main class="main" [ngClass]="{ 'ver-nav': verNav }">
+  <app-header
+    [isTienda]="true"
+    [nav]="verNav"
+    [notificaciones]="verNotificaciones"
+    [configuraciones]="verConfiguraciones"
+    [notificationsNotSeen]="notificationsNotSeen"
+    (verNavTienda)="verNav = $event"
+    (verNotificaciones)="verNotificaciones = $event"
+    (verConfiguraciones)="verConfiguraciones = $event"
+  ></app-header>
+  <div class="nav">
+    <app-nav
+      [isTienda]="true"
+      [verNav]="verNav"
+      (close)="verNav = $event"
+    ></app-nav>
+  </div>
+  <app-notificaciones
+    [verNotificaciones]="verNotificaciones"
+    (closeNotificacion)="verNotificaciones = $event"
+    (amountNotSeen)="notificationsNotSeen = $event"
+  ></app-notificaciones>
+  <app-configuraciones
+    [verConfiguraciones]="verConfiguraciones"
+    (closeConfiguraciones)="verConfiguraciones = $event"
+  ></app-configuraciones>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+  <p class="texto">
+    VoyRapidoChile 2021 &copy; | Hecho con mucho
+    <i class="fas fa-heart"></i> por
+    <a href="https://hellomundo.io/" target="__blank">hellomundo</a>
+  </p>
+</main>

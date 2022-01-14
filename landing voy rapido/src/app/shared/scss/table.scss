@@ -1,0 +1,312 @@
+::ng-deep .mat-paginator {
+  background: transparent !important;
+}
+
+::ng-deep .mat-paginator-container {
+  justify-content: center !important;
+}
+
+::ng-deep .mat-checkbox-frame {
+  border-color: #000 !important;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+  background: var(--color-s-dark) !important;
+}
+
+::ng-deep.mat-checkbox-checked
+  .mat-checkbox-background
+  .mat-checkbox-checkmark-path {
+  stroke: var(--text-secondary) !important;
+}
+
+::ng-deep .content-table .tr-options .th-options .mat-checkbox-mixedmark {
+  background-color: var(--text-secondary) !important;
+}
+
+::ng-deep .content-table .th-options .button {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  justify-content: space-evenly;
+  outline: none;
+  padding: 0 10px;
+  transition: 0.3s;
+}
+
+::ng-deep .content-table .th-options .button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+::ng-deep .content-table .th-options .button .fas {
+  background: none;
+  color: #fff;
+}
+
+.content-table {
+  background-color: var(--color-s-light);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.content-table::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.content-table::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.content-table::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.content-table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::ng-deep .content-table table {
+  width: 100%;
+}
+
+::ng-deep .content-table .mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+::ng-deep .content-table .id,
+::ng-deep .content-table .id:visited {
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  color: var(--color-blue);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  height: 30px;
+  justify-content: center;
+  margin-left: 5px;
+  text-decoration: none;
+  width: 30px;
+}
+
+::ng-deep .content-table .id.delete {
+  color: var(--color-red);
+}
+
+::ng-deep .content-table .id.edit {
+  color: var(--color-green);
+}
+
+::ng-deep .content-table td,
+::ng-deep .content-table th {
+  border: none !important;
+}
+
+::ng-deep .content-table th {
+  background-color: var(--color-p-dark);
+  color: var(--text-p-dark);
+  font-size: 12px;
+  position: sticky;
+  text-transform: uppercase;
+  top: 0;
+  z-index: 10 !important;
+}
+
+::ng-deep .content-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+::ng-deep .content-table .tr-options {
+  height: 50px;
+}
+
+::ng-deep .content-table .tr-options .th-options {
+  top: 56px;
+  transform: translateY(-56px);
+}
+
+::ng-deep .content-table .header-options {
+  transform: translateY(50px);
+}
+
+::ng-deep .content-table th .mat-checkbox-frame {
+  border-color: #fff !important;
+}
+
+::ng-deep .content-table th .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep
+  .content-table
+  th
+  .mat-checkbox-indeterminate
+  .mat-checkbox-background {
+  background: #fff !important;
+}
+
+::ng-deep
+  .content-table
+  th
+  .mat-checkbox-checked
+  .mat-checkbox-background
+  .mat-checkbox-checkmark-path {
+  stroke: #000 !important;
+}
+
+::ng-deep .content-table th .mat-checkbox-mixedmark {
+  background-color: #000 !important;
+}
+
+::ng-deep .content-table .tr-options .th-options .fas {
+  align-items: center;
+  background-color: var(--color-s-light);
+  border-radius: 50%;
+  color: var(--text-s-light);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  height: 30px;
+  justify-content: center;
+  margin-right: 10px;
+  transition: 0.3s;
+  width: 30px;
+}
+
+::ng-deep .content-table .tr-options .th-options .fas.add {
+  color: var(--color-blue);
+}
+
+::ng-deep .content-table .tr-options .th-options .fas.delete {
+  color: var(--color-red);
+}
+
+.content-search,
+.content-filter .content-input {
+  align-items: center;
+  display: flex;
+  height: 40px;
+  justify-content: flex-end;
+}
+
+.content-search .button-search,
+.content-filter .content-input .button-filter {
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+  height: 100%;
+  outline: none;
+  transition: 0.3s;
+  width: 40px;
+}
+
+.content-search .button-search .fas,
+.content-filter .content-input .button-filter .fas {
+  background: none;
+  border-radius: 0;
+  height: auto;
+  width: auto;
+}
+
+.content-search .button-search:hover,
+.content-filter .content-input .button-filter:hover {
+  background-color: #f4f4f4;
+}
+
+.content-search .search,
+.content-filter .content-input input {
+  background-color: #fff;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
+  font-size: 14px;
+  height: 100%;
+  letter-spacing: 0.5px;
+  outline: none;
+  padding: 5px 20px;
+  width: 250px;
+}
+
+.content-filter .content-input {
+  border-radius: 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.select-columns {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.select-columns.not-margin-top {
+  margin-top: 0;
+}
+
+.select-columns .columns {
+  display: inline-flex;
+}
+
+.select-columns .columns .input-column {
+  display: none;
+}
+
+.select-columns .columns .label-column {
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-size: 10px;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.4px;
+  margin: 2.5px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.select-columns .columns .label-column.no-select {
+  background-color: #f9f9f9;
+}
+
+.select-columns .columns .label-column .fas {
+  color: var(--color-red);
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.select-columns .columns .label-column.no-select .fas {
+  color: var(--color-blue);
+}
+
+@media (max-width: 767px) {
+  .content-search,
+  .content-filter .content-input {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 679px) {
+  .content-search,
+  .content-filter .content-input {
+    margin: 10px 0;
+    position: relative;
+  }
+}

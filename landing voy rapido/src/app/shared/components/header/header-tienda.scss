@@ -1,0 +1,147 @@
+.header-tienda {
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--text-primary);
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    left: 0;
+    padding: 0;
+    position: fixed;
+    transition: .3s ease all;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-tienda .content-config {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.header-tienda .content-config .fas {
+    align-items: center;
+    background-color: var(--color-s-light);
+    border-radius: 50%;
+    color: var(--text-s-light);
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 35px;
+    justify-content: center;
+    margin-right: 5px;
+    position: relative;
+    transition: .3s;
+    width: 35px;
+}
+
+.header-tienda .content-config .fas.notification::after {
+    align-items: center;
+    background-color: var(--color-secondary);
+    border-radius: 10px;
+    content: attr(data-notification);
+    color: var(--text-secondary);
+    display: flex;
+    font-size: 12px;
+    font-weight: 500;
+    height: 20px;
+    justify-content: center;
+    position: absolute;
+    right: -5px;
+    top: -6px;
+    min-width: 20px;
+}
+
+.header-tienda .content-config .setting,
+.header-tienda .content-config .setting:active {
+    border: none;
+    outline: none;
+    transition: .3s;
+}
+
+.header-tienda .content-config .setting.active {
+    background-color: var(--color-p-light);
+    color: var(--text-p-light);
+}
+
+.header-tienda .content-config .setting:hover .fas {
+    color: var(--color-secondary);
+}
+
+.header-tienda .content-config .setting.is1024,
+.header-tienda .content-config .setting .name {
+    display: none;
+}
+
+.header-tienda .container-logo .fas {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 0 50% 50% 0;
+    color: var(--color-s-light);
+    cursor: pointer;
+    height: 100%;
+    margin-right: 10px;
+    width: 50px;
+}
+
+@media (min-width: 680px) {
+    .header-tienda {
+        height: 60px;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-tienda .content-config {
+        padding-right: 20px;
+    }
+
+    .header-tienda .content-config .setting {
+        align-items: center;
+        background-color: var(--color-p-dark);
+        border-radius: 35px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+    .header-tienda .content-config .setting .fas {
+        margin: 0;
+    }
+
+    .header-tienda .content-config .setting .name {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0 10px;
+    }
+
+    .header-tienda .container-logo .fas {
+        border-radius: 0 50% 0 0;
+        width: 65px; /* ******** NAV LATERAL *********************** */
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-tienda .container-logo .content-logo .h1 {
+        transform: translateY(20px);
+    }
+
+    .header-tienda .container-logo .content-logo .h1 img {
+        width: 80px;
+    }
+
+    .header-tienda .container-logo {
+        padding-left: 20px; /* ****************** SOLO NAVEGACION BAJO EL HEADER **************** */
+    }
+
+    .header-tienda .container-logo .fas {
+        display: none;
+    }
+
+    .header-tienda .content-config .setting.is1024 {
+        display: flex;
+    }
+}

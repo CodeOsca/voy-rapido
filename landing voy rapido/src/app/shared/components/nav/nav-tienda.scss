@@ -1,0 +1,215 @@
+.nav-tienda {
+    background-color: var(--color-s-light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    color: var(--text-s-light);
+    height: 100vh;
+    left: -280px;
+    max-width: 90%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-top: 50px;
+    position: fixed;
+    top: 0;
+    transition: .5s;
+    width: 250px;
+    z-index: 99;
+}
+
+.nav-tienda.ver {
+    left: 0;
+}
+
+.nav-tienda::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+.nav-tienda::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.nav-tienda::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.nav-tienda::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-tienda ul {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.nav-tienda ul .item {
+    list-style: none;
+}
+
+.nav-tienda ul .item .link-item,
+.nav-tienda ul .item .link-item:visited {
+    align-items: center;
+    border-radius: 20px 0 0 20px;
+    color: var(--text-s-light);
+    cursor: pointer;
+    display: grid;
+    font-size: 13px;
+    font-weight: 400;
+    grid-gap: 20px;
+    grid-template-columns: 30px 1fr;
+    justify-content: flex-start;
+    letter-spacing: .4px;
+    padding: 10px 20px;
+    padding-left: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.nav-tienda ul .item .link-item:hover,
+.nav-tienda ul .item .link-item:visited:hover {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.nav-tienda ul .item .link-item.active,
+.nav-tienda ul .item .link-item.active:visited {
+    background-color: var(--color-s-dark);
+    color: var(--text-s-dark);
+}
+
+.nav-tienda ul .item .link-item .fas,
+.nav-tienda ul .item .link-item:visited .fas {
+    font-size: 22px;
+}
+
+.nav-tienda .texto {
+    background-color: var(--color-s-light);
+    bottom: 0;
+    color: var(--text-s-light);
+    font-size: 12px;
+    margin: 0;
+    margin-top: 30px;
+    padding: 10px;
+    position: sticky;
+    text-align: center;
+}
+
+.nav-tienda .texto .fas {
+    color: red;
+    margin: 0 5px;
+}
+
+.nav-tienda .texto a,
+.nav-tienda .texto a:visited {
+    color: var(--text-s-light);
+}
+
+.nav-tienda .title {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.nav-tienda .title img {
+    width: 120px;
+}
+
+@media (min-width: 680px) {
+    .nav-tienda {
+        padding-top: 60px;
+    }
+}
+
+/* // ************************** ESTILOS PARA NAV LATERAL IZQUIERDO ********************************* */
+
+@media (min-width: 768px) {
+    .nav-tienda {
+        left: 0;
+        padding-top: 70px;
+        width: 65px;
+    }
+
+    .nav-tienda.ver,
+    .nav-tienda:hover {
+        width: 250px;
+    }
+
+    .nav-tienda ul .item .link-item .name {
+        white-space: nowrap;
+    }
+
+    .nav-tienda .texto {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: .1s;
+        transition-delay: 0s;
+        visibility: hidden;
+    }
+
+    .nav-tienda.ver .texto,
+    .nav-tienda:hover .texto {
+        height: auto;
+        opacity: 1;
+        transition: .5s;
+        transition-delay: .5s;
+        visibility: visible;
+    }
+
+    .nav-tienda .title {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-tienda,
+    .nav-tienda.ver,
+    .nav-tienda:hover {
+        height: 100px;
+        left: 0;
+        max-width: 100%;
+        padding-top: 60px;
+        width: 100%;
+    }
+
+    .nav-tienda ul {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        padding: 0 10px;
+        padding-left: 100px;
+    }
+
+    .nav-tienda ul .item.not1024 {
+        display: none;
+    }
+
+    .nav-tienda ul .item .link-item,
+    .nav-tienda ul .item .link-item:visited {
+        background-color: rgba(0, 0, 0, .03);
+        border-radius: 20px;
+        display: flex;
+        grid-gap: 0;
+        margin: 0 5px;
+        padding: 5px 10px;
+    }
+
+    .nav-tienda ul .item .link-item.active,
+    .nav-tienda ul .item .link-item.active:visited {
+        background-color: var(--color-secondary);
+        color: var(--text-secondary);
+    }
+
+    .nav-tienda ul .item .link-item .fas,
+    .nav-tienda ul .item .link-item:visited .fas {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .nav-tienda .title,
+    .nav-tienda .texto {
+        display: none;
+    }
+}

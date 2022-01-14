@@ -1,0 +1,137 @@
+.importantes {
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+}
+
+.importantes .content-notificaciones .list-items {
+    margin: 0;
+    padding: 0;
+}
+
+.importantes .content-notificaciones .list-items .item {
+    list-style: none;
+    font-size: 12px;
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.importantes .content-notificaciones .list-items .item::before {
+    background-color: #000;
+    border-radius: 50%;
+    content: "";
+    height: 8px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+}
+
+.importantes .content-notificaciones .title-importante {
+    color: var(--color-blue);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.importantes .fas {
+    color: var(--color-blue);
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+.info-ordenes {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.info-ordenes .content-info {
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.info-ordenes .content-info .description-info p {
+    margin: 0;
+}
+
+.info-ordenes .content-info .description-info .cant-info {
+    color: var(--color);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.info-ordenes .content-info .description-info .title-info {
+    font-size: 12px;
+}
+
+.info-ordenes .content-info .fas {
+    color: var(--color-blue);
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+@media (min-width: 680px) {
+    .info-ordenes {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-info {
+        align-items: flex-start;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
+
+    .importantes {
+        align-items: flex-start;
+        overflow: auto;
+    }
+
+    .importantes::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+    }
+
+    .importantes::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .importantes::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .importantes::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .importantes .fas {
+        position: sticky;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .importantes,
+    .info-ordenes .content-info {
+        height: 100px;
+    }
+}
